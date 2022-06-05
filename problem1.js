@@ -19,3 +19,5 @@ var maxSubArray = function (nums) {
   }
   return maxGlobal;
 };
+
+// Comment to just check out if git is working
