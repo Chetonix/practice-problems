@@ -21,3 +21,4 @@ var maxSubArray = function (nums) {
 };
 
 // Comment to just check out if git is working
+// console.log(maxSubArray([1, 2, 3]))
