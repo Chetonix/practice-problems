@@ -13,3 +13,30 @@ var mySqrt = function (x) {
     }
   }
 };
+
+//BINARY SOLUTION
+
+// var mySqrt = function(x) {
+//     let start = 0;
+//     let end = x;
+//     let ans = 1;
+    
+//     while(start<=end) {
+        
+//         let mid = start + Math.floor((end - start) / 2);
+        
+//         if(mid*mid === x) {
+//             return mid;
+//         }else if (mid*mid < x) {
+//             ans = mid;
+//             start = mid + 1;
+//         } else if (mid*mid > x) {
+//             end = mid - 1;
+//         }
+//     }
+    
+//     return ans;
+    
+// };
+
+console.log(mySqrt(8));
