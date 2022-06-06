@@ -20,5 +20,22 @@ var maxSubArray = function (nums) {
   return maxGlobal;
 };
 
+// var maxSubArray = function(nums) {
+//     let sum = 0;
+//     let max = -Infinity;
+//     let n = nums.length;
+//     for (let i = 0; i < n; i++){
+//         sum = 0;
+//     for (let j = i; j < n; j++) {
+//             sum += nums[j];
+        
+//         if (sum > max)
+//             max = sum;
+//     }
+    
+// }
+//     return max;
+// }
+
 
 // console.log(maxSubArray([1, 2, 3]))
