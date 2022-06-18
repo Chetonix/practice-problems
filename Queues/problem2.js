@@ -13,13 +13,19 @@
  * @return {boolean}
  */
 MyCircularDeque.prototype.insertFront = function(value) {
-    if(isEmpty) {
+    if(this.size === this.length) {
+        return false;
+    }
+    if(this.isEmpty) {
         this.front = {value};
         this.back = {value}
+        this.length += 1;
     }else{
         this.front.next = {value, prev:this.front};
         this.front = this.front.next;
+        this.length += 1;
     }
+    return true;
 };
 
 /** 
@@ -27,13 +33,19 @@ MyCircularDeque.prototype.insertFront = function(value) {
  * @return {boolean}
  */
 MyCircularDeque.prototype.insertLast = function(value) {
+    if(this.size === this.length) {
+        return false;
+    }
     if(this.isEmpty) {
         this.front = {value};
         this.back = {value};
+        this.length += 1;
     }else{
         this.back.prev = {value, next: this.back};
         this.back = this.back.prev;
+        this.length += 1;
     }
+    return true;
 };
 
 /**
@@ -45,8 +57,11 @@ MyCircularDeque.prototype.deleteFront = function() {
     }else if (this.front === this.back) {
         this.front = null;
         this.back= null;
+        return true;
     }else {
-        
+        this.front = this.front.prev;
+        this.front.next = null;
+        return true;
     }
 };
 
@@ -54,7 +69,16 @@ MyCircularDeque.prototype.deleteFront = function() {
  * @return {boolean}
  */
 MyCircularDeque.prototype.deleteLast = function() {
-    
+    if(this.isEmpty) {
+        return false;
+    }else if (this.front===this.back) {
+        this.front = null;
+        this.back = null;
+    }else  {
+        this.back = this.back.next;
+        this.back.prev = null;
+    }
+    return true;
 };
 
 /**
