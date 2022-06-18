@@ -117,15 +117,18 @@ MyCircularDeque.prototype.isFull = function() {
     return (this.length === this.size);
 };
 
-/** 
- * Your MyCircularDeque object will be instantiated and called as such:
- * var obj = new MyCircularDeque(k)
- * var param_1 = obj.insertFront(value)
- * var param_2 = obj.insertLast(value)
- * var param_3 = obj.deleteFront()
- * var param_4 = obj.deleteLast()
- * var param_5 = obj.getFront()
- * var param_6 = obj.getRear()
- * var param_7 = obj.isEmpty()
- * var param_8 = obj.isFull()
- */
+
+// Your MyCircularDeque object will be instantiated and called as such:
+var obj = new MyCircularDeque(2)
+var param_1 = obj.insertFront(3)
+var param_2 = obj.insertLast(2)
+// var param_3 = obj.deleteFront()
+// var param_4 = obj.deleteLast()
+var param_5 = obj.getFront()
+var param_6 = obj.getRear()
+var param_7 = obj.isEmpty()
+var param_8 = obj.isFull()
+ 
+// console.log(param_1, param_2, param_3, param_4, param_5, param_6, param_7, param_8);
+
+console.log(param_1, param_2, param_5, param_6, param_7, param_8);
