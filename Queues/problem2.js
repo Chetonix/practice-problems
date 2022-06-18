@@ -36,7 +36,7 @@ MyCircularDeque.prototype.insertLast = function(value) {
     if(this.size === this.length) {
         return false;
     }
-    if(this.isEmpty) {
+    if(this.isEmpty()) {
         this.front = {value};
         this.back = {value};
         this.length += 1;
@@ -52,24 +52,26 @@ MyCircularDeque.prototype.insertLast = function(value) {
  * @return {boolean}
  */
 MyCircularDeque.prototype.deleteFront = function() {
-    if(this.isEmpty) {
+    if(this.isEmpty()) {
         return false;
     }else if (this.front === this.back) {
         this.front = null;
-        this.back= null;
-        return true;
+        this.back = null;
+        this.length -= 1;
+        
     }else {
         this.front = this.front.prev;
         this.front.next = null;
-        return true;
+        this.length -= 1;
     }
+    return true;
 };
 
 /**
  * @return {boolean}
  */
 MyCircularDeque.prototype.deleteLast = function() {
-    if(this.isEmpty) {
+    if(this.isEmpty()) {
         return false;
     }else if (this.front===this.back) {
         this.front = null;
@@ -85,7 +87,7 @@ MyCircularDeque.prototype.deleteLast = function() {
  * @return {number}
  */
 MyCircularDeque.prototype.getFront = function() {
-    if(this.isEmpty) {
+    if(this.isEmpty()) {
         return -1;
     }
     return this.front.value;
@@ -95,7 +97,7 @@ MyCircularDeque.prototype.getFront = function() {
  * @return {number}
  */
 MyCircularDeque.prototype.getRear = function() {
-    if(this.isEmpty) {
+    if(this.isEmpty()) {
         return -1;
     }
     return this.back.value;
@@ -112,7 +114,7 @@ MyCircularDeque.prototype.isEmpty = function() {
  * @return {boolean}
  */
 MyCircularDeque.prototype.isFull = function() {
-    return (this.length === k);
+    return (this.length === this.size);
 };
 
 /** 
