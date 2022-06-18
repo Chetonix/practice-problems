@@ -40,7 +40,14 @@ MyCircularDeque.prototype.insertLast = function(value) {
  * @return {boolean}
  */
 MyCircularDeque.prototype.deleteFront = function() {
-    
+    if(this.isEmpty) {
+        return false;
+    }else if (this.front === this.back) {
+        this.front = null;
+        this.back= null;
+    }else {
+        
+    }
 };
 
 /**
