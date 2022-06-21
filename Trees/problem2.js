@@ -40,34 +40,45 @@
  */
  var isSameTree = function(p, q) {
     
+    if(!p && !q) {
+        return true;
+    }
+    
+    if(!p || !q) {
+        return false;
+    }
+    
+    
     let arrP = [p];
     let arrQ = [q];
     
-    while(arrP.length > 0 && arrQ.length > 0) {
-        n1 = arrP.shift();
-        n2 = arrQ.shift();
+    while(arrP.length !== 0 && arrQ.length !== 0) {
+       
+        n1 = arrP[0];
+        n2 = arrQ[0];
         
         if(n1.val !== n2.val) {
             return false;          
         }
         
-        if(!n1.left && !n2.left) {
+         n1 = arrP.shift();
+        n2 = arrQ.shift();
+        
+        if(n1.left != null && n2.left != null) {
             arrP.push(n1.left);
             arrQ.push(n2.left);
-        } else if (!n1.left || n2.left) {
+        } else if (n1.left != null || n2.left != null) {
             return false;
         }
         
-        if(!n1.right && !n2.right) {
+        if(n1.right != null && n2.right != null) {
             arrP.push(n1.right);
             arrQ.push(n2.right);
-        } else if (!n1.right || n2.right) {
+        } else if (n1.right != null || n2.right != null) {
             return false;
         }
     }
     
+    return true;
+    
 };
-
-
-
-
